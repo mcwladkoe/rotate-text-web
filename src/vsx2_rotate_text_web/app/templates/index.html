@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Переворот текста</h1>
+    <div class="main-content">
+        <form>
+            <div class="form-group">
+                <label for="inputarea">Введите текст тут</label>
+                <textarea class="form-control" id="inputarea" name="inputarea" rows="3"></textarea>
+            </div>
+            <div class="row submit-container">
+                <div class="col-12 btn btn-dark submit">
+                    Перевернуть
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="outputarea">
+                    Перевернутый текст
+                    <div class="btn btn-default copy" title="Скопировать в буфер">
+                        ⎘ скопировать
+                    </div>
+                </label>
+                <textarea class="form-control" id="outputarea" rows="3" disabled="disabled"></textarea>
+            </div>
+        </form>
+        <p>
+            Переворот поддерживается для русских (маленьких) и английских (больших и маленьких) букв. Полный список доступен в <a href="{{ url_for('doc') }}" target="_blank">таблице</a>
+        </p>
+    </div>
+{% endblock %}
