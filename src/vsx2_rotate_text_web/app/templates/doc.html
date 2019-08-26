@@ -1,9 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Переворот текста: таблица символов</h1>
+    <h1>{{ _('docPageTitle') }}</h1>
     <div class="main-content">
-        <p>Перевернуть текст можно <a href="{{ url_for('index') }}" target="_blank">тут</a></p>
+        <p>
+            {{ _('rotateTextLabel') }}
+            <a href="{{ url_for('index') }}" target="_blank">
+                {{ _('rotateTextLabel2') }}
+            </a>
+        </p>
         <table class="table table-striped table-bordered">
             <colgroup>
                 <col style="width: 50%"/>
@@ -11,8 +16,8 @@
             </colgroup>
             <thead>
                 <tr>
-                    <th>Символ</th>
-                    <th>Перевернутый Символ</th>
+                    <th>{{ _('symbolLabel') }}Символ</th>
+                    <th>{{ _('rotatedSymbolLabel') }}Перевернутый Символ</th>
                 </tr>
             </thead>
             <tbody>

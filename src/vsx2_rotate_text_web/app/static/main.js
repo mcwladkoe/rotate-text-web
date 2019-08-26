@@ -34,13 +34,14 @@ $(document).ready(function(){
     $('.submit').on('click', processAndChange);
     $('form').on('submit', processAndChange);
     $('.copy').on('click', function(ev) {
-        var copyField = $('#outputarea');
-        copyField.removeAttr('disabled');
-        copyField.select();
+        var self = this,
+            $copyField = $('#outputarea');
+        $copyField.removeAttr('disabled');
+        $copyField.select();
         document.execCommand("copy");
-        copyField.attr('disabled', 'disabled');
+        $copyField.attr('disabled', 'disabled');
         $.notify({
-            message: 'Скопировано.',
+            message: $(self).data('success'),
         }, {
             type: 'success'
         });

@@ -2,9 +2,12 @@ from setuptools import setup, find_packages
 
 requires = [
     'flask',
-    'flask_bootstrap',
+    'flask_babel',
+    'Flask-Assets',
+    'jsmin',
+    'cssmin',
     'waitress',
-    'vsx2_rotate @ git+https://github.com/mcwladkoe/vsx2_rotate'
+    'vsx2_rotate @ git+https://github.com/mcwladkoe/vsx2_rotate',
 ]
 
 setup(
@@ -17,8 +20,12 @@ setup(
     packages=find_packages('src'),
     package_dir={'': 'src'},
     install_requires=requires,
-    entry_points="""\
-        [console_scripts]
-        rotate_text_server = vsx2_rotate_text_web.app.server:main
-    """
+    entry_points={
+        'flask.commands': [
+            'assets = flask_assets:assets',
+        ],
+        'console_scripts': [
+            'vsx2_rotate_text_web_run = vsx2_rotate_text_web.app.server:main'
+        ]
+    }
 )
