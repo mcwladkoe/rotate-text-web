@@ -56,7 +56,6 @@ def doc():
 
 @app.route('/setlang', methods=["get"])
 def setlang():
-    print(request.referrer)
     referrer = request.referrer or url_for('index')
     resp = make_response(redirect(referrer, code=302))
     resp.set_cookie('locale', request.values.get('locale'))
